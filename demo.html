@@ -1,0 +1,264 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPMIS: An Investigation of Synthetic Spoken Misinformation Detection</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin: 40px 0;
+        }
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin: 40px 0 10px;
+            color: #555;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .authors {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #666;
+        }
+        .paper-links {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .paper-links a {
+            display: inline-block;
+            text-decoration: none;
+            color: #fff; /* Set text color to white */
+            background-color: #333; /* Set link background color to black */
+            border: 1px solid #333;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-size: 16px;
+            margin: 0 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .paper-links a:hover {
+            background-color: #555; /* Change to dark gray on hover */
+            color: #fff;
+        }
+        .paper-links i {
+            margin-right: 8px;
+        }
+        .overview, .results {
+            margin-top: 40px;
+            padding: 20px 0;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #666;
+        }
+        .data-distribution, .model-architecture {
+            text-align: center;
+            margin: 40px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            font-size: 18px;
+            color: #333;
+        }
+        table th, table td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        table th {
+            font-weight: 600;
+            background-color: #f1f1f1;
+        }
+        /* Related Links */
+        .related-links {
+            margin: 40px 0;
+        }
+        .related-links h2 {
+            font-size: 22px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .related-links a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+            margin: 8px 0;
+            transition: color 0.3s ease;
+        }
+        .related-links a:hover {
+            color: #0056b3;
+        }
+        /* BibTeX Section */
+        .bibtex {
+            margin-top: 40px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-left: 4px solid #007bff;
+            font-family: monospace;
+            font-size: 14px;
+            color: #555;
+            white-space: pre;
+        }
+        .rights {
+            font-size: 14px;
+            color: #888;
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            text-align: center;
+        }
+        footer {
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            margin-top: 50px;
+            padding: 20px 0;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Title -->
+        <h1>SPMIS: An Investigation of Synthetic Spoken Misinformation Detection</h1>
+
+        <!-- Author Section -->
+        <div class="authors">
+            <p>Peizhuo Liu<sup>1,2,†</sup>, Li Wang<sup>1,†</sup>, Renqiang He<sup>1,3,†</sup>, Haorui He<sup>1</sup>, Lei Wang<sup>4</sup>, Huadi Zheng<sup>5</sup>, Jie Shi<sup>4</sup>, Tong Xiao<sup>2</sup>, Zhizheng Wu<sup>1</sup></p>
+            <p>1. The Chinese University of Hong Kong, Shenzhen, China</p>
+            <p>2. Northeastern University, Shenyang, China</p>
+            <p>3. Beijing Institute of Technology, Beijing, China</p>
+            <p>4. Huawei International Pte Ltd, Singapore</p>
+            <p>5. Huawei Technologies Co., Ltd, China</p>
+        </div>
+
+        <!-- Paper Links with Icons -->
+        <div class="paper-links">
+            <a href="#"><i class="fas fa-file-alt"></i> Paper</a>
+            <a href="#"><i class="fab fa-github"></i> GitHub</a>
+            <a href="#"><i class="fas fa-file-powerpoint"></i> Slides</a>
+        </div>
+
+        <!-- Overview Section -->
+        <div class="overview">
+            <h2>Abstract</h2>
+            <p>In recent years, speech generation technology has advanced
+                rapidly, fueled by generative models and large-scale training tech-
+                niques. While these developments have enabled the production of
+                high-quality synthetic speech, they have also raised concerns about
+                the misuse of this technology, particularly for generating synthetic
+                misinformation. Current research primarily focuses on distinguish-
+                ing machine-generated speech from human-produced speech, but
+                the more urgent challenge is detecting misinformation within spo-
+                ken content. This task requires a thorough analysis of factors such
+                as speaker identity, topic, and synthesis. To address this need, we
+                conduct an initial investigation into synthetic spoken misinforma-
+                tion detection by introducing an open-source dataset, SpMis. SpMis
+                includes speech synthesized from over 1,000 speakers across five
+                common topics, utilizing state-of-the-art text-to-speech systems.
+                Although our results show promising detection capabilities, they
+                also reveal substantial challenges for practical implementation, un-
+                derscoring the importance of ongoing research in this critical area.</p>
+        </div>
+
+        <!-- Model Architecture Image -->
+        <div class="model-architecture">
+            <h2>Model Architecture</h2>
+            <img src="your-model-architecture-image.png" alt="Model Architecture">
+        </div>
+
+        <!-- Test Results Table -->
+        <div class="results">
+            <h2>Test Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Accuracy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Spoken Misinformation Detection</td>
+                        <td>94.6%</td>
+                    </tr>
+                    <tr>
+                        <td>Other Task</td>
+                        <td>92.3%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Data Distribution Image -->
+        <div class="data-distribution">
+            <h2>Data Distribution</h2>
+            <img src="your-data-distribution-image.png" alt="Data Distribution">
+        </div>
+
+        <!-- Related Links -->
+        <div class="related-links">
+            <h2>Related Links</h2>
+            <p>There are a lot of excellent works that are related to this project:</p>
+            <a href="#">DreamFusion: Text-to-3D using 2D Diffusion</a>
+            <a href="#">Score Jacobian Chaining: Lifting Pretrained 2D Diffusion Models for 3D Generation</a>
+            <a href="#">Magic3D: High-Resolution Text-to-3D Content Creation</a>
+            <a href="#">Fantasia3D: Disentangling Geometry and Appearance for High-quality Text-to-3D Content Creation</a>
+        </div>
+
+        <!-- BibTeX Section -->
+        <div class="bibtex">
+            <h2>BibTeX</h2>
+            <pre>
+@article{liu2024spmis,
+  title={SPMIS: An Investigation of Synthetic Spoken Misinformation Detection},
+  author={Peizhuo Liu and Li Wang and Renqiang He and Haorui He and Lei Wang and Huadi Zheng and Jie Shi and Tong Xiao and Zhizheng Wu},
+  journal={arXiv preprint arXiv:xxxx.xxxxx},
+  year={2024}
+}
+            </pre>
+        </div>
+
+        <!-- Rights Section -->
+        <div class="rights">
+            <p>© 2024 AI Demo. This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</p>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            &copy; 2024 AI Demo by YourName. All rights reserved.
+        </footer>
+    </div>
+
+</body>
+</html>
