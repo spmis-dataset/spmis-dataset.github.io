@@ -77,14 +77,19 @@
         }
 
         img {
-            max-width: 50%; /* 调整图片大小 */
+            width: 100%; /* 图片占据容器的全宽 */
             height: auto;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            display: block; /* 确保图片是块级元素 */
-            margin: 0 auto; /* 将图片居中 */
+            display: block;
+            margin: 0 auto;
         }
-
+        .pipeline img {
+            width: 80%; /* 将图片宽度设置为容器的100% */
+            max-width: 1000px; /* 如果需要，可以设置一个最大宽度 */
+            height: auto; /* 保持图片比例 */
+            display: block;
+            margin: 0 auto;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -195,55 +200,298 @@
                 derscoring the importance of ongoing research in this critical area.</p>
         </div>
 
-        <!-- Model Architecture Image -->
-        <div class="pipeline">
-            <h2>Model Architecture</h2>
-            <img src="images/pipeline.png" alt="pipeline">
+        <div class="misinformation_img">
+            <h2>Example</h2>
+            <img src="images/example.png" alt="pipeline">
+            <p>A comparison between DeepFake detection and synthetic spoken misinformation detection. DeepFake detection (left) is to distinguish
+                synthetic and recording. On the other hand, synthetic spoken misinformation detection (right) is to detect synthetic speech by a specific
+                speaker or a group of speaker on specific topics.
+                </p>
         </div>
 
-        <!-- Test Results Table -->
-        <div class="results">
-            <h2>Test Results</h2>
+        <div class="data-distribution">
+            <h2>Data Distribution</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Model</th>
-                        <th>Accuracy</th>
+                        <th>Topic</th>
+                        <th># Samples</th>
+                        <th># Misinformation</th>
+                        <th># Speakers</th>
+                        <th>Duration (hr)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Spoken Misinformation Detection</td>
-                        <td>94.6%</td>
+                        <td>Politics</td>
+                        <td>76,542</td>
+                        <td>1,740</td>
+                        <td>772</td>
+                        <td>586.59</td>
                     </tr>
                     <tr>
-                        <td>Other Task</td>
-                        <td>92.3%</td>
+                        <td>Medicine</td>
+                        <td>21,836</td>
+                        <td>740</td>
+                        <td>1,094</td>
+                        <td>429.77</td>
+                    </tr>
+                    <tr>
+                        <td>Education</td>
+                        <td>177,392</td>
+                        <td>2,970</td>
+                        <td>989</td>
+                        <td>665.59</td>
+                    </tr>
+                    <tr>
+                        <td>Laws</td>
+                        <td>11,422</td>
+                        <td>862</td>
+                        <td>936</td>
+                        <td>1,534.78</td>
+                    </tr>
+                    <tr>
+                        <td>Finance</td>
+                        <td>53,011</td>
+                        <td>2,369</td>
+                        <td>940</td>
+                        <td>585.69</td>
+                    </tr>
+                    <tr>
+                        <td>Other</td>
+                        <td>20,408</td>
+                        <td>0</td>
+                        <td>1,094</td>
+                        <td>1,136.23</td>
+                    </tr>
+                    <tr>
+                        <td>ALL</td>
+                        <td>360,611</td>
+                        <td>8,681</td>
+                        <td>1,094</td>
+                        <td>4,938.65</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <!-- Data Distribution Image -->
-        <div class="data-distribution">
-            <h2>Data Distribution</h2>
-            <img src="your-data-distribution-image.png" alt="Data Distribution">
+        <!-- Model Architecture Image -->
+        <div class="pipeline">
+            <h2>Pipeline</h2>
+            <img src="images/pipeline.png" alt="pipeline">
+            <p>Overview of the detection pipeline. Deepfake Detection
+                checks the synthetic audio and sends it to Speaker Verification.
+                Speaker Verification verifies the celebrities we focus on and sends
+                them to Topic Classification. Topic Classification tells the specific
+                topic. Misinformation is detected through these three modules.
+            </p>
         </div>
 
-        <!-- Related Links -->
-        <div class="related-links">
-            <h2>Related Links</h2>
-            <p>There are a lot of excellent works that are related to this project:</p>
-            <a href="#">DreamFusion: Text-to-3D using 2D Diffusion</a>
-            <a href="#">Score Jacobian Chaining: Lifting Pretrained 2D Diffusion Models for 3D Generation</a>
-            <a href="#">Magic3D: High-Resolution Text-to-3D Content Creation</a>
-            <a href="#">Fantasia3D: Disentangling Geometry and Appearance for High-quality Text-to-3D Content Creation</a>
+
+        <div class="pipeline">
+            <h2>Results</h2>
+            <img src="images/result.png" alt="result">
+            <p>The speaker error rate of two TTS models in Speaker Verification.
+                </p>
         </div>
+
+        
+        
+
+        <div class="speaker-verification">
+            <h2>Error Rates of Speaker Verification Module</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ref. Length</th>
+                        <th>Finance(%)</th>
+                        <th>Laws(%)</th>
+                        <th>Education(%)</th>
+                        <th>Politics(%)</th>
+                        <th>Medicine(%)</th>
+                        <th>Micro Averaged(%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10 seconds</td>
+                        <td>14.82</td>
+                        <td>28.07</td>
+                        <td>31.18</td>
+                        <td>32.24</td>
+                        <td>33.11</td>
+                        <td>26.78</td>
+                    </tr>
+                    <tr>
+                        <td>1 minute</td>
+                        <td>11.90</td>
+                        <td>24.36</td>
+                        <td>27.98</td>
+                        <td>24.54</td>
+                        <td>15.95</td>
+                        <td>21.52</td>
+                    </tr>
+                    <tr>
+                        <td>5 minutes</td>
+                        <td>3.84</td>
+                        <td>20.19</td>
+                        <td>21.82</td>
+                        <td>18.16</td>
+                        <td>13.78</td>
+                        <td>15.33</td>
+                    </tr>
+                    <tr>
+                        <td>20 minutes</td>
+                        <td>2.11</td>
+                        <td>20.19</td>
+                        <td>20.51</td>
+                        <td>18.56</td>
+                        <td>13.51</td>
+                        <td>14.47</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="topic-classification">
+            <h2>Error Rates of Topic Classification Module</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Train Size</th>
+                        <th>Finance(%)</th>
+                        <th>Laws(%)</th>
+                        <th>Education(%)</th>
+                        <th>Politics(%)</th>
+                        <th>Medicine(%)</th>
+                        <th>Micro Averaged(%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BERT</td>
+                        <td>1,000</td>
+                        <td>0.04</td>
+                        <td>0.00</td>
+                        <td>0.92</td>
+                        <td>0.92</td>
+                        <td>0.16</td>
+                        <td>0.50</td>
+                    </tr>
+                    <tr>
+                        <td>BERT</td>
+                        <td>3,000</td>
+                        <td>0.04</td>
+                        <td>0.00</td>
+                        <td>1.13</td>
+                        <td>0.07</td>
+                        <td>0.16</td>
+                        <td>0.40</td>
+                    </tr>
+                    <tr>
+                        <td>BERT</td>
+                        <td>10,000</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>0.67</td>
+                        <td>0.35</td>
+                        <td>0.00</td>
+                        <td>0.28</td>
+                    </tr>
+                    <tr>
+                        <td>Logistic Regression</td>
+                        <td>1,000</td>
+                        <td>0.00</td>
+                        <td>0.00</td>
+                        <td>4.06</td>
+                        <td>0.65</td>
+                        <td>1.10</td>
+                        <td>1.56</td>
+                    </tr>
+                    <tr>
+                        <td>Logistic Regression</td>
+                        <td>3,000</td>
+                        <td>0.04</td>
+                        <td>0.00</td>
+                        <td>1.87</td>
+                        <td>0.22</td>
+                        <td>0.16</td>
+                        <td>0.67</td>
+                    </tr>
+                    <tr>
+                        <td>Logistic Regression</td>
+                        <td>10,000</td>
+                        <td>0.09</td>
+                        <td>0.00</td>
+                        <td>1.75</td>
+                        <td>0.29</td>
+                        <td>0.16</td>
+                        <td>0.66</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="misinformation-detection">
+            <h2>Misinformation Detection Result</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Misinformation</th>
+                        <th>Num. of Errors</th>
+                        <th>Error Rate(%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Politics</td>
+                        <td>1,740</td>
+                        <td>333</td>
+                        <td>19.14</td>
+                    </tr>
+                    <tr>
+                        <td>Medicine</td>
+                        <td>740</td>
+                        <td>102</td>
+                        <td>13.78</td>
+                    </tr>
+                    <tr>
+                        <td>Education</td>
+                        <td>2,970</td>
+                        <td>556</td>
+                        <td>18.72</td>
+                    </tr>
+                    <tr>
+                        <td>Laws</td>
+                        <td>862</td>
+                        <td>175</td>
+                        <td>20.30</td>
+                    </tr>
+                    <tr>
+                        <td>Finance</td>
+                        <td>2,369</td>
+                        <td>57</td>
+                        <td>2.41</td>
+                    </tr>
+                    <tr>
+                        <td>ALL</td>
+                        <td>8,681</td>
+                        <td>1,223</td>
+                        <td>14.09</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        
 
         <!-- BibTeX Section -->
         <div class="bibtex">
             <h2>BibTeX</h2>
             <pre>
+
 @article{liu2024spmis,
   title={SPMIS: An Investigation of Synthetic Spoken Misinformation Detection},
   author={Peizhuo Liu and Li Wang and Renqiang He and Haorui He and Lei Wang and Huadi Zheng and Jie Shi and Tong Xiao and Zhizheng Wu},
@@ -252,7 +500,6 @@
 }
             </pre>
         </div>
-/mnt/data1/herenqiang/demo_page/spmis-dataset.github.io/images
         <!-- Rights Section -->
         <div class="rights">
             <p>© 2024 AI Demo. This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</p>
