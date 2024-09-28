@@ -147,6 +147,12 @@
             padding-top: 10px;
             text-align: center;
         }
+        .icon {
+            width: 24px;      /* 固定宽度 */
+            height: 24px;     /* 固定高度 */
+            vertical-align: middle;  /* 让图标和文字保持在同一行 */
+            margin-right: 8px;       /* 图标和文字之间的间距 */
+        }
         footer {
             text-align: center;
             font-size: 14px;
@@ -176,10 +182,10 @@
         <!-- Paper Links with Icons -->
         <div class="paper-links">
             <a href="https://arxiv.org/abs/2409.11308">
-                <img src="icons/paper.svg" alt="Paper" style="width:24px;height:24px;margin-right:8px;"> Paper
+                <img src="icons/paper.svg" alt="Paper" class="icon"> Paper
             </a>
             <a href="https://github.com/spmis-dataset/spmis_1">
-                <img src="icons/github.svg" alt="GitHub" style="width:24px;height:24px;margin-right:8px;"> GitHub
+                <img src="icons/github.svg" alt="GitHub" class="icon"> GitHub
             </a>
         </div>
 
