@@ -135,7 +135,9 @@
             font-family: monospace;
             font-size: 14px;
             color: #555;
-            white-space: pre;
+            white-space: pre; /* 保持格式 */
+            overflow-x: auto; /* 水平方向允许滚动 */
+            padding: 20px; /* 增加一些内边距 */
         }
         .rights {
             font-size: 14px;
@@ -491,15 +493,15 @@
             <h2>BibTeX</h2>
             <pre>
 
-                @misc{liu2024spmisinvestigationsyntheticspoken,
-                    title={SpMis: An Investigation of Synthetic Spoken Misinformation Detection}, 
-                    author={Peizhuo Liu and Li Wang and Renqiang He and Haorui He and Lei Wang and Huadi Zheng and Jie Shi and Tong Xiao and Zhizheng Wu},
-                    year={2024},
-                    eprint={2409.11308},
-                    archivePrefix={arXiv},
-                    primaryClass={cs.CL},
-                    url={https://arxiv.org/abs/2409.11308}, 
-              }
+@misc{liu2024spmisinvestigationsyntheticspoken,
+    title={SpMis: An Investigation of Synthetic Spoken Misinformation Detection}, 
+    author={Peizhuo Liu and Li Wang and Renqiang He and Haorui He and Lei Wang and Huadi Zheng and Jie Shi and Tong Xiao and Zhizheng Wu},
+    year={2024},
+    eprint={2409.11308},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL},
+    url={https://arxiv.org/abs/2409.11308}, 
+}
             </pre>
         </div>
         <!-- Rights Section -->
